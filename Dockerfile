@@ -26,4 +26,4 @@ COPY --from=build /usr/local/share/asn1c /usr/local/share/asn1c/
 
 WORKDIR /spec
 
-CMD ["/usr/local/bin/asn1c", "-no-gen-example","test.asn"]
+CMD ["/usr/local/bin/asn1c", "-pdu=all", "-fcompound-names", "-findirect-choice", "-fno-include-deps", "-flink-skeletons", "-gen-PER", "s1ap-14.4.0.asn1"]
