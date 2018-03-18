@@ -17,6 +17,8 @@ RUN cd /asn1c && \
 # ------------
 FROM alpine:3.6
 
+RUN apk add --no-cache build-base
+
 COPY --from=build /usr/local/bin/asn1c /usr/local/bin/
 
 # Copy standard types and en-/decoders
