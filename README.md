@@ -10,14 +10,14 @@ docker build -t "asn1c:1" .
 
 ## Generate S1AP using compiler
 
-docker run -v /<host-dir>/spec:/spec asn1c:1
+docker run -v $PWD/spec:/spec asn1c:1
 
 ## Build converter example
 
-docker run -v /<host-dir>/spec:/spec asn1c:1 make -f converter-example.mk
+docker run -v $PWD/spec:/spec asn1c:1 make -f converter-example.mk
 
 ## Run it
-docker run -v /<host-dir>/spec:/spec asn1c:1 ./converter-example
+docker run -v $PWD/spec:/spec asn1c:1 ./converter-example
 
 ## Debug/shell
 docker run -it --rm asn1c:1 /bin/sh
