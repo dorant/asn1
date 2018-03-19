@@ -1,19 +1,23 @@
 ## asn.1 tool container
 
+## Prepare
+
+git submodule update --init
+
 ## Build compiler in a container
 
 docker build -t "asn1c:1" .
 
 ## Generate S1AP using compiler
 
-docker run -v /host-dir/spec:/spec asn1c:1
+docker run -v /<host-dir>/spec:/spec asn1c:1
 
 ## Build converter example
 
-docker run -v /host-dir/spec:/spec asn1c:1 make -f converter-example.m
+docker run -v /<host-dir>/spec:/spec asn1c:1 make -f converter-example.mk
 
 ## Run it
-docker run -v /Users/bjorn/git/asn1/spec:/spec asn1c:1 ./converter-example
+docker run -v /<host-dir>/spec:/spec asn1c:1 ./converter-example
 
 ## Debug/shell
 docker run -it --rm asn1c:1 /bin/sh
